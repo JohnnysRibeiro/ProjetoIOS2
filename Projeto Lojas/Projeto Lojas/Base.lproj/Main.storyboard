@@ -191,6 +191,9 @@
                                         <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="login:" destination="4pK-qh-R7A" eventType="touchUpInside" id="rli-3d-KpT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rtd-Yo-VU9">
                                 <rect key="frame" x="16" y="486" width="343" height="40"/>
@@ -207,7 +210,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="Lqf-gu-WL4" kind="presentation" id="L7d-BD-DNW"/>
+                                    <segue destination="Lqf-gu-WL4" kind="presentation" identifier="registerSegueIdentifier" id="L7d-BD-DNW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -236,6 +239,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="3NG-WC-BIs"/>
                     <connections>
+                        <outlet property="emailField" destination="xMv-zm-m9w" id="Qyb-fE-XNV"/>
+                        <outlet property="passwordField" destination="ewp-TJ-fQx" id="9qr-pc-nbr"/>
                         <outlet property="viewLogo" destination="9hM-zF-SPF" id="VTT-S8-59l"/>
                     </connections>
                 </viewController>
@@ -462,6 +467,9 @@
                                                     <state key="normal" title="CADASTRE-SE">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="registerNewUser:" destination="Lqf-gu-WL4" eventType="touchUpInside" id="BS7-rD-kYp"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -482,7 +490,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="LGj-4D-ewk"/>
                     <connections>
+                        <outlet property="ageField" destination="F4D-yL-8Hg" id="V7I-xP-aJ9"/>
                         <outlet property="botaoCadastro" destination="SD3-Xk-Btm" id="hB5-Xg-2zh"/>
+                        <outlet property="emailField" destination="1jW-9M-QVS" id="7T2-7x-9bx"/>
+                        <outlet property="nameField" destination="2jJ-Qi-SNf" id="NFs-pF-Je8"/>
+                        <outlet property="passwordField" destination="Y7u-gY-wjI" id="e5o-f8-TeG"/>
+                        <outlet property="phoneField" destination="3aD-aT-5tB" id="aWJ-RZ-Jdu"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lHv-Dv-89f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -695,7 +708,7 @@
         <!--Perfil View Controller-->
         <scene sceneID="3c3-Rp-H1F">
             <objects>
-                <viewController id="lXE-Jw-Cob" customClass="PerfilViewController" customModule="Projeto_Lojas" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="perfilViewControllerID" id="lXE-Jw-Cob" customClass="PerfilViewController" customModule="Projeto_Lojas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="reV-LW-Wfi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -723,14 +736,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(61) 8888-8888" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHJ-Lz-uyd">
-                                <rect key="frame" x="16" y="276" width="343" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="(61) 8888-8888" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHJ-Lz-uyd">
+                                <rect key="frame" x="16" y="259" width="343" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UkK-PD-RB0">
-                                <rect key="frame" x="97" y="330" width="180" height="108"/>
+                                <rect key="frame" x="97" y="329.5" width="180" height="108"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="liked" translatesAutoresizingMaskIntoConstraints="NO" id="tHY-dt-TYX">
                                         <rect key="frame" x="60" y="8" width="60" height="60"/>
@@ -777,10 +790,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LsS-0S-Dzc"/>
                     </view>
+                    <connections>
+                        <outlet property="userEmailLabel" destination="rA2-HI-wpA" id="iTp-Wh-Trk"/>
+                        <outlet property="userLogo" destination="Gfi-bh-UYG" id="pzd-Ny-KlU"/>
+                        <outlet property="userNameLabel" destination="Foe-Jm-Csn" id="mxI-Zv-5iC"/>
+                        <outlet property="userPhoneLabel" destination="uHJ-Lz-uyd" id="1sH-aM-HUh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vl0-bi-f0q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1396" y="1084"/>
+            <point key="canvasLocation" x="1396" y="1083.5082458770617"/>
         </scene>
         <!--Minhas Listas-->
         <scene sceneID="Bo8-76-hMl">
